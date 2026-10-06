@@ -1,1698 +1,629 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sawad K.T. | Certified AI Mentor & Marketing Trainer</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-              display: ['Space Grotesk', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
-            }
-          }
-        }
-      }
-    </script>
-    
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Custom Style tweaks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      .scrollbar-none::-webkit-scrollbar {
-        display: none;
-      }
-      .scrollbar-none {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes scaleUp {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      
-      .animate-fadeIn {
-        animation: fadeIn 0.3s ease-out forwards;
-      }
-      .animate-scaleUp {
-        animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-      
-      /* Typewriter cursor blinking */
-      .cursor-blink::after {
-        content: '|';
-        animation: blink 0.8s infinite;
-      }
-      @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-      }
-    </style>
-  </head>
-  <body class="min-h-screen bg-[#F8FAFC] text-slate-700 font-sans selection:bg-[#10B981] selection:text-white relative overflow-x-hidden">
-    
-    <!-- NAVIGATION HEADER -->
-    <header id="main-header" class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="h-9 w-9 rounded bg-[#1E293B] flex items-center justify-center text-[#10B981] font-display font-extrabold text-sm tracking-tight shadow-sm">
-            SK
-          </div>
-          <div>
-            <span class="text-base font-bold text-[#1E293B] tracking-tight font-display">
-              Sawad K.T.
-            </span>
-            <div class="text-[10px] text-[#10B981] tracking-wider uppercase font-bold font-sans">
-              AI Trainer & Consultant
-            </div>
-          </div>
-        </div>
-
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-8">
-          <a href="#hero" class="text-sm font-medium text-slate-600 hover:text-[#10B981] transition-colors">Home</a>
-          <a href="#about" class="text-sm font-medium text-slate-600 hover:text-[#10B981] transition-colors">About</a>
-          <a href="#services" class="text-sm font-medium text-slate-600 hover:text-[#10B981] transition-colors">Services</a>
-          <a href="#testimonials" class="text-sm font-medium text-slate-600 hover:text-[#10B981] transition-colors">Reviews</a>
-          <a href="#courses" class="text-sm font-medium text-slate-600 hover:text-[#10B981] transition-colors">Courses</a>
-          <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-[#10B981] transition-colors">FAQ</a>
-        </nav>
-
-        <div class="hidden md:flex items-center gap-3">
-          <!-- Desktop Social Icons -->
-          <div class="flex items-center gap-3 mr-2 border-r border-slate-200 pr-4">
-            <a href="https://www.facebook.com/profile.php?id=61580936154145&sk=reviews" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#1877F2] transition-colors" title="Facebook">
-              <i data-lucide="facebook" class="h-4.5 w-4.5"></i>
-            </a>
-            <a href="https://www.instagram.com/sawadkt.ai/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-[#E1306C] transition-colors" title="Instagram">
-              <i data-lucide="instagram" class="h-4.5 w-4.5"></i>
-            </a>
-          </div>
-          
-          <button
-            onclick="openChatbot()"
-            class="px-4 py-2 text-xs font-semibold text-slate-700 hover:text-[#1E293B] flex items-center gap-2 border border-slate-200 rounded-lg bg-white hover:bg-slate-50 transition-all cursor-pointer shadow-sm"
-          >
-            <i data-lucide="sparkles" class="h-4 w-4 text-[#10B981]"></i>
-            Ask AI Agent
-          </button>
-          <a
-            href="https://wa.me/919656331815?text=Hi%20Sawad%20K.T.!%20I%20am%20visiting%20your%20website%20and%20would%20love%20to%20chat%20with%20you%20about%20your%20simplified%20AI%20training%20classes."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-5 py-2.5 text-xs font-semibold bg-[#10B981] hover:bg-[#0F9F6E] text-white rounded-lg transition-all shadow-sm flex items-center gap-1.5"
-          >
-            <i data-lucide="message-square" class="h-4 w-4"></i>
-            Join WhatsApp
-          </a>
-        </div>
-
-        <!-- Mobile hamburger menu -->
-        <button
-          onclick="toggleMobileMenu()"
-          class="p-2 text-slate-500 hover:text-slate-800 lg:hidden cursor-pointer"
-          id="mobile-menu-btn"
-        >
-          <i data-lucide="menu" class="h-6 w-6" id="menu-icon"></i>
-        </button>
-      </div>
-
-      <!-- Mobile Dropdown Nav -->
-      <div class="hidden lg:hidden border-b border-slate-200 bg-white px-4 py-4 flex flex-col gap-3 shadow-md" id="mobile-menu">
-        <a href="#hero" onclick="toggleMobileMenu()" class="text-sm font-semibold text-[#1E293B] hover:text-[#10B981] py-1 font-display">Home</a>
-        <a href="#about" onclick="toggleMobileMenu()" class="text-sm font-semibold text-[#1E293B] hover:text-[#10B981] py-1 font-display">About</a>
-        <a href="#services" onclick="toggleMobileMenu()" class="text-sm font-semibold text-[#1E293B] hover:text-[#10B981] py-1 font-display">Services</a>
-        <a href="#testimonials" onclick="toggleMobileMenu()" class="text-sm font-semibold text-[#1E293B] hover:text-[#10B981] py-1 font-display">Reviews</a>
-        <a href="#courses" onclick="toggleMobileMenu()" class="text-sm font-semibold text-[#1E293B] hover:text-[#10B981] py-1 font-display">Courses</a>
-        <a href="#faq" onclick="toggleMobileMenu()" class="text-sm font-semibold text-[#1E293B] hover:text-[#10B981] py-1 font-display">FAQ</a>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
-        <!-- Mobile Social Icons -->
-        <div class="flex items-center justify-center gap-6 py-3 mt-1 border-t border-slate-100">
-          <a href="https://www.facebook.com/profile.php?id=61580936154145&sk=reviews" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-[#1877F2] transition-colors">
-            <i data-lucide="facebook" class="h-5 w-5"></i>
-          </a>
-          <a href="https://www.instagram.com/sawadkt.ai/" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-[#E1306C] transition-colors">
-            <i data-lucide="instagram" class="h-5 w-5"></i>
-          </a>
-        </div>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f3f6;
+        }
 
-        <div class="pt-2 flex flex-col gap-2">
-          <button
-            onclick="toggleMobileMenu(); openChatbot();"
-            class="w-full py-2.5 bg-slate-50 border border-slate-200 text-slate-700 rounded-lg font-semibold text-xs flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <i data-lucide="sparkles" class="h-4 w-4 text-[#10B981]"></i>
-            Ask AI Agent
-          </button>
-          <a
-            href="https://wa.me/919656331815?text=Hi%20Sawad!%20I'm%20ready%20to%20learn%20high-income%20skills%20using%20AI.%20Let's%20chat%20on%20WhatsApp!"
-            target="_blank"
-            rel="noopener noreferrer"
-            onclick="toggleMobileMenu()"
-            class="w-full py-2.5 bg-[#10B981] text-white font-semibold rounded-lg text-xs text-center flex items-center justify-center gap-2"
-          >
-            <i data-lucide="message-square" class="h-4 w-4"></i>
-            Join WhatsApp
-          </a>
+        /* Custom scrollbar for horizontal scrolling containers */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Carousel transition */
+        .carousel-slide {
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-blue-600 text-white sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-cart-shopping text-yellow-400 text-2xl"></i>
+                <div class="flex flex-col leading-tight">
+                    <span class="font-bold text-xl italic tracking-wider">ShopKart</span>
+                    <span class="text-[10px] text-gray-200 italic hover:underline">Explore <span class="text-yellow-400 font-bold">Plus</span> <i class="fa-solid fa-plus text-yellow-400 text-[8px]"></i></span>
+                </div>
+            </div>
+
+            <!-- Search Bar (Desktop) -->
+            <div class="hidden md:flex flex-1 max-w-2xl mx-8 relative">
+                <input type="text" placeholder="Search for products, brands and more" class="w-full py-2 px-4 rounded-sm text-gray-800 focus:outline-none shadow-sm">
+                <button class="absolute right-0 top-0 h-full px-4 text-blue-600">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-6">
+                <!-- Search Icon (Mobile) -->
+                <button class="md:hidden text-xl"><i class="fa-solid fa-magnifying-glass"></i></button>
+                
+                <!-- Login Button -->
+                <button onclick="openLoginModal()" class="bg-white text-blue-600 px-8 py-1 font-medium rounded-sm hover:bg-gray-100 hidden sm:block">Login</button>
+                <button onclick="openLoginModal()" class="sm:hidden text-xl"><i class="fa-regular fa-circle-user"></i></button>
+
+                <!-- Become a Seller -->
+                <a href="#" class="hidden lg:block font-medium hover:text-gray-200">Become a Seller</a>
+
+                <!-- More Dropdown -->
+                <div class="hidden md:flex items-center gap-1 cursor-pointer font-medium hover:text-gray-200 group relative">
+                    <span>More</span>
+                    <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
+                    <!-- Dropdown Content (Hidden by default) -->
+                    <div class="absolute top-full right-0 mt-2 w-48 bg-white text-gray-800 shadow-lg rounded-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <a href="#" class="block px-4 py-3 hover:bg-gray-50 border-b border-gray-100"><i class="fa-regular fa-bell mr-3 text-blue-600"></i> Notification Preferences</a>
+                        <a href="#" class="block px-4 py-3 hover:bg-gray-50 border-b border-gray-100"><i class="fa-solid fa-headset mr-3 text-blue-600"></i> 24x7 Customer Care</a>
+                        <a href="#" class="block px-4 py-3 hover:bg-gray-50"><i class="fa-solid fa-chart-line mr-3 text-blue-600"></i> Advertise</a>
+                    </div>
+                </div>
+
+                <!-- Cart -->
+                <a href="#" class="flex items-center gap-2 font-medium hover:text-gray-200">
+                    <div class="relative">
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-yellow-500 text-xs text-white font-bold px-1.5 rounded-full border border-blue-600" id="cart-count">0</span>
+                    </div>
+                    <span class="hidden md:block">Cart</span>
+                </a>
+            </div>
         </div>
-      </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative pt-12 pb-16 md:pt-20 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
-        
-        <div class="lg:col-span-7 flex flex-col gap-6 text-center lg:text-left animate-fadeIn">
-          <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 text-[#0F9F6E] text-xs font-semibold self-center lg:self-start uppercase tracking-wider border border-emerald-100 shadow-sm">
-            <span class="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-            <span>🟢 Simple AI Learning for Everyone</span>
-          </div>
-          
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-[1.15] text-[#111827]">
-            Learn AI Skills <br />
-            <span class="text-[#10B981]">That Help You Earn More</span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-            I help students, professionals, housewives, and businesses use AI to save time, improve work, and grow income. Let's make AI simple for everyone.
-          </p>
-
-          <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-2">
-            <a
-              href="https://wa.me/919656331815?text=Hi%20Sawad!%20I%20saw%20your%20website%20and%20would%20love%20to%20join%20your%20WhatsApp%20community%20to%20learn%20AI."
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full sm:w-auto px-8 py-4 bg-[#10B981] hover:bg-[#0F9F6E] text-white font-bold rounded-xl text-center shadow-md transition-all flex items-center justify-center gap-2 text-sm"
-            >
-              <i data-lucide="message-square" class="h-5 w-5"></i>
-              Join WhatsApp Group
-            </a>
-            <a
-              href="#testimonials"
-              class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 text-[#1E293B] font-semibold rounded-xl border border-slate-200 transition-all flex items-center justify-center gap-2.5 cursor-pointer shadow-sm text-sm"
-            >
-              <i data-lucide="play" class="h-4 w-4 text-[#10B981]"></i>
-              Watch Free Videos
-            </a>
-          </div>
-
-          <!-- Rating Indicator -->
-          <div class="flex items-center justify-center lg:justify-start gap-1 text-slate-500 text-xs mt-1">
-            <div class="flex items-center text-[#10B981]">
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-            </div>
-            <span class="font-semibold text-slate-700 ml-1">4.9/5 Rating</span>
-            <span class="text-slate-400">|</span>
-            <span>Based on 10k Students Trained</span>
-          </div>
+    <nav class="bg-white shadow-sm mb-2 overflow-x-auto hide-scrollbar">
+        <div class="container mx-auto px-4 py-3">
+            <ul class="flex justify-between md:justify-center md:gap-12 min-w-max" id="category-list">
+                <!-- Categories will be injected here by JS -->
+            </ul>
         </div>
+    </nav>
 
-        <!-- Portrait Photo & Custom Controls Section -->
-        <div class="lg:col-span-5 relative">
-          <div class="w-full max-w-[340px] sm:max-w-[370px] mx-auto bg-white border border-slate-200 p-3 sm:p-4 rounded-3xl shadow-lg relative flex flex-col items-center">
+    <main class="container mx-auto px-2 sm:px-4">
+        
+        <section class="mb-2 relative w-full h-[150px] sm:h-[200px] md:h-[280px] overflow-hidden rounded-sm bg-white shadow-sm group">
+            <div id="carousel-inner" class="flex h-full carousel-slide">
+                <!-- Carousel items will be injected here -->
+            </div>
             
-            <!-- Picture container with dynamic styling -->
-            <div class="aspect-[3/4] w-full rounded-2xl bg-slate-100 overflow-hidden relative border border-slate-100 shadow-inner flex items-center justify-center">
-              <img 
-                id="profile-img"
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=800" 
-                alt="Sawad K.T." 
-                class="h-full w-full transition-transform duration-100 ease-out object-cover"
-                style="transform-origin: center center;"
-              />
+            <!-- Carousel Controls -->
+            <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 px-2 py-4 rounded-r-md shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 px-2 py-4 rounded-l-md shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
 
-              <!-- Float Action Buttons -->
-              <div class="absolute top-3 right-3 flex items-center gap-1.5 z-10">
-                <!-- Upload trigger button -->
-                <label 
-                  class="h-9 px-3 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#10B981] border border-slate-200/90 rounded-lg cursor-pointer transition-all shadow-md flex items-center gap-1.5 font-bold text-xs active:scale-95 select-none"
-                  title="Upload custom portrait photo"
-                >
-                  <i data-lucide="camera" class="h-4 w-4 text-[#10B981]"></i>
-                  <span>Upload</span>
-                  <input 
-                    type="file" 
-                    accept="image/*" 
-                    onchange="handleProfileUpload(event)" 
-                    class="hidden" 
-                  />
-                </label>
+            <!-- Carousel Indicators -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" id="carousel-indicators">
+                <!-- Indicators injected by JS -->
+            </div>
+        </section>
 
-                <!-- Toggle Controls panel -->
-                <button
-                  onclick="togglePhotoControls()"
-                  id="tune-btn"
-                  class="h-9 px-2.5 rounded-lg border bg-white hover:bg-slate-50 border-slate-200 text-slate-700 hover:text-[#10B981] cursor-pointer transition-all shadow-md flex items-center justify-center font-semibold text-xs active:scale-95 select-none"
-                  title="Tune zoom and position alignment"
-                >
-                  <i data-lucide="sliders" class="h-4 w-4"></i>
-                  <span id="tune-btn-text" class="hidden ml-1 font-bold">Tune</span>
+        <section class="bg-white shadow-sm p-4 mb-4 rounded-sm">
+            <div class="flex justify-between items-center mb-4 border-b pb-3">
+                <h2 class="text-xl md:text-2xl font-semibold">Best of Electronics</h2>
+                <button class="bg-blue-600 text-white p-2 rounded-full shadow-md hover:bg-blue-700 w-8 h-8 flex items-center justify-center">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
                 </button>
-              </div>
-
-              <div class="absolute bottom-3 left-3 right-3 py-1.5 bg-white/95 border border-slate-200/50 text-[#1E293B] text-xs font-bold text-center rounded shadow-sm backdrop-blur-sm select-none">
-                Sawad K.T. • Your AI Coach
-              </div>
-            </div>
-
-            <!-- Alignment Control Panel (Hidden by default, shown upon clicking "Tune" or uploading) -->
-            <div id="photo-controls" class="hidden w-full mt-3 bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col gap-3 text-left">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-slate-700 flex items-center gap-1">
-                  <i data-lucide="sliders" class="h-3.5 w-3.5 text-[#10B981]"></i>
-                  Align & Scale Photo
-                </span>
-                <div class="flex gap-1.5">
-                  <button
-                    onclick="resetPhotoPosition()"
-                    class="text-[10px] font-bold text-slate-500 hover:text-slate-800 bg-white border border-slate-200 px-2 py-1 rounded flex items-center gap-1 active:scale-95 cursor-pointer"
-                    title="Reset sliders to defaults"
-                  >
-                    <i data-lucide="rotate-ccw" class="h-3 w-3"></i>
-                    Reset
-                  </button>
-                  <button
-                    onclick="resetToDefaultPhoto()"
-                    class="text-[10px] font-bold text-red-600 hover:bg-red-50 bg-white border border-red-100 px-2 py-1 rounded flex items-center gap-1 active:scale-95 cursor-pointer"
-                    title="Reset back to default photo"
-                  >
-                    <i data-lucide="trash-2" class="h-3 w-3"></i>
-                    Default
-                  </button>
-                </div>
-              </div>
-
-              <div class="space-y-2">
-                <!-- Zoom Slider -->
-                <div>
-                  <div class="flex justify-between text-[10px] font-semibold text-slate-500">
-                    <span>Zoom Scale</span>
-                    <span id="zoom-val">100%</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    id="zoom-slider"
-                    min="50" 
-                    max="300" 
-                    step="5"
-                    value="100" 
-                    oninput="updateImageStyle()"
-                    class="w-full accent-[#10B981] cursor-pointer h-1 bg-slate-200 rounded-lg appearance-none mt-1"
-                  />
-                </div>
-
-                <!-- Vertical Offset Y -->
-                <div>
-                  <div class="flex justify-between text-[10px] font-semibold text-slate-500">
-                    <span>Vertical Position (Up/Down)</span>
-                    <span id="offset-y-val">0px</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    id="offset-y-slider"
-                    min="-200" 
-                    max="200" 
-                    step="2"
-                    value="0" 
-                    oninput="updateImageStyle()"
-                    class="w-full accent-[#10B981] cursor-pointer h-1 bg-slate-200 rounded-lg appearance-none mt-1"
-                  />
-                </div>
-
-                <!-- Horizontal Offset X -->
-                <div>
-                  <div class="flex justify-between text-[10px] font-semibold text-slate-500">
-                    <span>Horizontal Position (Left/Right)</span>
-                    <span id="offset-x-val">0px</span>
-                  </div>
-                  <input 
-                    type="range" 
-                    id="offset-x-slider"
-                    min="-200" 
-                    max="200" 
-                    step="2"
-                    value="0" 
-                    oninput="updateImageStyle()"
-                    class="w-full accent-[#10B981] cursor-pointer h-1 bg-slate-200 rounded-lg appearance-none mt-1"
-                  />
-                </div>
-
-                <!-- Fit Mode Selector -->
-                <div class="flex items-center justify-between pt-1 border-t border-slate-200/50">
-                  <span class="text-[10px] font-semibold text-slate-500">Fitting Mode</span>
-                  <div class="flex gap-1">
-                    <button
-                      onclick="setFitMode('cover')"
-                      id="fit-cover-btn"
-                      class="text-[9px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer bg-[#10B981] text-white border-[#10B981]"
-                    >
-                      Cover (Fill)
-                    </button>
-                    <button
-                      onclick="setFitMode('contain')"
-                      id="fit-contain-btn"
-                      class="text-[9px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer bg-white hover:bg-slate-100 border-slate-200 text-slate-600"
-                    >
-                      Contain (Fit)
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Social Media Channels Grid -->
-            <div class="mt-4 flex flex-col items-center gap-2 text-center w-full">
-              <div class="grid grid-cols-3 gap-1.5 w-full">
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61580936154145&sk=reviews" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-100 hover:border-[#10B981]/40 hover:bg-white transition-all text-slate-600 hover:text-[#1877F2]"
-                >
-                  <i data-lucide="facebook" class="h-4.5 w-4.5"></i>
-                  <span class="text-[9px] font-bold uppercase tracking-wider mt-1 font-sans">Reviews</span>
-                </a>
-                <a 
-                  href="https://www.instagram.com/sawadkt.ai/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-100 hover:border-[#10B981]/40 hover:bg-white transition-all text-slate-600 hover:text-[#E1306C]"
-                >
-                  <i data-lucide="instagram" class="h-4.5 w-4.5"></i>
-                  <span class="text-[9px] font-bold uppercase tracking-wider mt-1 font-sans">Followers</span>
-                </a>
-                <a 
-                  href="https://wa.me/919656331815?text=Hi%20Sawad!%20I'm%20ready%20to%20learn%20AI%20and%20grow%20my%20business." 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="flex flex-col items-center justify-center p-2 rounded-xl bg-slate-50 border border-slate-100 hover:border-[#10B981]/40 hover:bg-white transition-all text-slate-600 hover:text-[#10B981]"
-                >
-                  <i data-lucide="message-square" class="h-4.5 w-4.5"></i>
-                  <span class="text-[9px] font-bold uppercase tracking-wider mt-1 font-sans">Community</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SERVICES & FEATURES SECTION -->
-    <section id="services" class="py-20 bg-white border-t border-b border-slate-100 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-[#10B981] text-xs font-bold uppercase tracking-widest font-sans">EXPERTISE</span>
-          <h2 class="text-3xl sm:text-4xl font-display font-bold text-[#1E293B] mt-1 tracking-tight">
-            How I Help You Succeed
-          </h2>
-          <p class="text-[#4B5563] mt-2 text-sm max-w-md mx-auto leading-relaxed">
-            From beginners wanting to optimize daily work to store owners ready to run automated high-converting sales systems.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          
-          <div class="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col gap-4">
-            <div class="h-12 w-12 rounded-xl bg-emerald-50 text-[#10B981] flex items-center justify-center font-bold text-xl">
-              💡
-            </div>
-            <h3 class="text-lg font-bold text-[#1E293B] font-display">AI Workshops</h3>
-            <p class="text-sm text-[#4B5563] leading-relaxed">
-              Step-by-step classes on ChatGPT, Midjourney, and prompt sheets. Perfect for complete beginners.
-            </p>
-          </div>
-
-          <div class="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col gap-4">
-            <div class="h-12 w-12 rounded-xl bg-emerald-50 text-[#10B981] flex items-center justify-center font-bold text-xl">
-              📈
-            </div>
-            <h3 class="text-lg font-bold text-[#1E293B] font-display">Meta & Digital Ads</h3>
-            <p class="text-sm text-[#4B5563] leading-relaxed">
-              Create and optimize Facebook and Instagram ad campaigns that scale sales using advanced creative modeling.
-            </p>
-          </div>
-
-          <div class="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col gap-4">
-            <div class="h-12 w-12 rounded-xl bg-emerald-50 text-[#10B981] flex items-center justify-center font-bold text-xl">
-              🤖
-            </div>
-            <h3 class="text-lg font-bold text-[#1E293B] font-display">WhatsApp Automation</h3>
-            <p class="text-sm text-[#4B5563] leading-relaxed">
-              Automate customer replies, sales qualification pipelines, and CRM systems to operate on autopilot 24/7.
-            </p>
-          </div>
-
-          <div class="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col gap-4">
-            <div class="h-12 w-12 rounded-xl bg-emerald-50 text-[#10B981] flex items-center justify-center font-bold text-xl">
-              💼
-            </div>
-            <h3 class="text-lg font-bold text-[#1E293B] font-display">Personal Mentoring</h3>
-            <p class="text-sm text-[#4B5563] leading-relaxed">
-              Get step-by-step one-to-one guidance for your local store, freelancing career, or personal skill building.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- STUDENT RESULTS / METRICS -->
-    <section id="results" class="py-16 bg-[#F8FAFC] px-4 sm:px-6 lg:px-8">
-      <div class="max-w-5xl mx-auto bg-white border border-slate-100 rounded-3xl p-8 md:p-12 shadow-sm">
-        
-        <div class="text-center mb-10">
-          <span class="text-[#10B981] text-xs font-bold uppercase tracking-widest font-sans">IMPACT IN NUMBERS</span>
-          <h2 class="text-2xl sm:text-3xl font-display font-bold text-[#1E293B] mt-1">
-            Proven Student Success
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y-0 md:divide-x divide-slate-100">
-          <div class="p-4">
-            <div class="text-4xl md:text-5xl font-display font-extrabold text-[#1E293B]">10k</div>
-            <p class="text-sm text-[#4B5563] font-medium mt-1">Students Trained</p>
-          </div>
-          <div class="p-4">
-            <div class="text-4xl md:text-5xl font-display font-extrabold text-[#10B981]">33K+</div>
-            <p class="text-sm text-[#4B5563] font-medium mt-1">Social Followers</p>
-          </div>
-          <div class="p-4">
-            <div class="text-4xl md:text-5xl font-display font-extrabold text-[#1E293B]">300+</div>
-            <p class="text-sm text-[#4B5563] font-medium mt-1">Workshops Held</p>
-          </div>
-          <div class="p-4">
-            <div class="text-4xl md:text-5xl font-display font-extrabold text-[#10B981]">4.9/5</div>
-            <p class="text-sm text-[#4B5563] font-medium mt-1">Average Rating</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- VERIFIED VIDEO STUDENT REVIEWS (CAROUSEL) -->
-    <section id="testimonials" class="py-20 bg-white border-t border-b border-slate-100 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-          <div class="max-w-xl text-left">
-            <span class="text-[#10B981] text-xs font-bold uppercase tracking-widest font-sans">STUDENT VOICE</span>
-            <h2 class="text-3xl sm:text-4xl font-display font-bold text-[#1E293B] mt-1 tracking-tight">
-              Watch Real Video Student Reviews
-            </h2>
-            <p class="text-[#4B5563] mt-2 text-sm leading-relaxed">
-              watch some of my workshop and review video highlights
-            </p>
-          </div>
-
-          <!-- Carousel Controls -->
-          <div class="flex gap-2 self-start md:self-end">
-            <button
-              onclick="scrollCarousel('left')"
-              id="prev-btn"
-              class="h-11 w-11 rounded-full border border-slate-200 bg-slate-50 text-slate-300 cursor-not-allowed flex items-center justify-center transition-all cursor-pointer"
-              aria-label="Previous review"
-            >
-              <i data-lucide="chevron-left" class="h-5 w-5"></i>
-            </button>
-            <button
-              onclick="scrollCarousel('right')"
-              id="next-btn"
-              class="h-11 w-11 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-400 active:scale-95 shadow-xs flex items-center justify-center transition-all cursor-pointer"
-              aria-label="Next review"
-            >
-              <i data-lucide="chevron-right" class="h-5 w-5"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Carousel Track -->
-        <div 
-          id="reviews-carousel"
-          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none pb-4"
-          onscroll="checkCarouselScroll()"
-        >
-          
-          <!-- Testimonial 1 -->
-          <div
-            id="testimonial-t1"
-            onclick="playVideo('t1', 'Plamf72ZhGU', 'Workflow automation and prompt templates execution')"
-            class="w-[240px] sm:w-[280px] md:w-[300px] shrink-0 bg-white border border-slate-200 hover:border-[#10B981]/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col group relative snap-start"
-          >
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-slate-900 video-wrapper">
-              <img
-                src="https://img.youtube.com/vi/Plamf72ZhGU/hqdefault.jpg"
-                alt="Workflow automation and prompt templates execution"
-                class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 group-hover:from-black/55 transition-all duration-300"></div>
-              <div class="absolute inset-0 flex items-center justify-center z-10">
-                <div class="h-12 w-12 rounded-full bg-white/95 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300 border border-slate-100">
-                  <i data-lucide="play" class="h-5 w-5 fill-current ml-0.5 stroke-0"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div
-            id="testimonial-t2"
-            onclick="playVideo('t2', '0ptgmJWdWKM', 'Direct campaign scaling and e-commerce growth highlights')"
-            class="w-[240px] sm:w-[280px] md:w-[300px] shrink-0 bg-white border border-slate-200 hover:border-[#10B981]/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col group relative snap-start"
-          >
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-slate-900 video-wrapper">
-              <img
-                src="https://img.youtube.com/vi/0ptgmJWdWKM/hqdefault.jpg"
-                alt="Direct campaign scaling and e-commerce growth highlights"
-                class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 group-hover:from-black/55 transition-all duration-300"></div>
-              <div class="absolute inset-0 flex items-center justify-center z-10">
-                <div class="h-12 w-12 rounded-full bg-white/95 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300 border border-slate-100">
-                  <i data-lucide="play" class="h-5 w-5 fill-current ml-0.5 stroke-0"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div
-            id="testimonial-t3"
-            onclick="playVideo('t3', 'XBUYHLdyB2o', 'Advanced store automation and CRM setup highlights')"
-            class="w-[240px] sm:w-[280px] md:w-[300px] shrink-0 bg-white border border-slate-200 hover:border-[#10B981]/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col group relative snap-start"
-          >
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-slate-900 video-wrapper">
-              <img
-                src="https://img.youtube.com/vi/XBUYHLdyB2o/hqdefault.jpg"
-                alt="Advanced store automation and CRM setup highlights"
-                class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 group-hover:from-black/55 transition-all duration-300"></div>
-              <div class="absolute inset-0 flex items-center justify-center z-10">
-                <div class="h-12 w-12 rounded-full bg-white/95 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300 border border-slate-100">
-                  <i data-lucide="play" class="h-5 w-5 fill-current ml-0.5 stroke-0"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 4 -->
-          <div
-            id="testimonial-t4"
-            onclick="playVideo('t4', 'pF3I7jQI8o8', 'Direct-response ad copywriting and audience strategies')"
-            class="w-[240px] sm:w-[280px] md:w-[300px] shrink-0 bg-white border border-slate-200 hover:border-[#10B981]/50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col group relative snap-start"
-          >
-            <div class="relative aspect-[9/16] w-full overflow-hidden bg-slate-900 video-wrapper">
-              <img
-                src="https://img.youtube.com/vi/pF3I7jQI8o8/hqdefault.jpg"
-                alt="Direct-response ad copywriting and audience strategies"
-                class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 group-hover:from-black/55 transition-all duration-300"></div>
-              <div class="absolute inset-0 flex items-center justify-center z-10">
-                <div class="h-12 w-12 rounded-full bg-white/95 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300 border border-slate-100">
-                  <i data-lucide="play" class="h-5 w-5 fill-current ml-0.5 stroke-0"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Text Reviews Block -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-12 border-t border-slate-100">
-          <div class="bg-[#F8FAFC] p-6 rounded-xl border border-slate-200/50">
-            <div class="flex text-yellow-500 gap-1 mb-2">
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-            </div>
-            <p class="text-sm text-[#4B5563] italic font-normal">
-              "I got my first freelance client after this course. Sawad teaches AI in a very simple step-by-step way!"
-            </p>
-            <h5 class="text-xs font-bold text-[#1E293B] mt-3">Rahul S., Student</h5>
-          </div>
-
-          <div class="bg-[#F8FAFC] p-6 rounded-xl border border-slate-200/50">
-            <div class="flex text-yellow-500 gap-1 mb-2">
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-            </div>
-            <p class="text-sm text-[#4B5563] italic font-normal">
-              "The WhatsApp automation template saved my online shop 15 hours every week. Truly amazing!"
-            </p>
-            <h5 class="text-xs font-bold text-[#1E293B] mt-3">Priya M., Boutique Owner</h5>
-          </div>
-
-          <div class="bg-[#F8FAFC] p-6 rounded-xl border border-slate-200/50">
-            <div class="flex text-yellow-500 gap-1 mb-2">
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-              <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-            </div>
-            <p class="text-sm text-[#4B5563] italic font-normal">
-              "Perfect for complete beginners. I didn't know anything about ChatGPT before joining this class."
-            </p>
-            <h5 class="text-xs font-bold text-[#1E293B] mt-3">Anjali K., Homemaker</h5>
-          </div>
-        </div>
-
-        <!-- Facebook reviews CTA link -->
-        <div class="mt-10 text-center">
-          <a
-            href="https://www.facebook.com/profile.php?id=61580936154145&sk=reviews"
-            target="_blank"
-            rel="noreferrer"
-            class="inline-flex items-center gap-2 bg-[#1877F2]/10 hover:bg-[#1877F2]/15 text-[#1877F2] font-semibold text-sm px-6 py-3 rounded-xl border border-[#1877F2]/20 transition-all hover:shadow-sm"
-          >
-            <i data-lucide="facebook" class="h-4.5 w-4.5 fill-[#1877F2] text-[#1877F2]"></i>
-            <span>Read more student success reviews on Facebook</span>
-            <i data-lucide="external-link" class="h-3.5 w-3.5 opacity-70"></i>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- COURSES / LEARNING PROGRAMS SECTION -->
-    <section id="courses" class="py-20 bg-[#F8FAFC] px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        
-        <div class="text-center max-w-3xl mx-auto mb-12">
-          <span class="text-[#10B981] text-xs font-bold uppercase tracking-widest font-sans">CHOOSE YOUR PATH</span>
-          <h2 class="text-3xl sm:text-4xl font-display font-bold text-[#1E293B] mt-1 tracking-tight">
-            Simplified Learning Programs
-          </h2>
-          <p class="text-[#4B5563] mt-2 text-sm max-w-lg mx-auto">
-            Select the program that fits your goals. Every course is beginner-friendly and practical.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 items-stretch">
-          
-          <!-- Course Card 1 -->
-          <div class="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col justify-between transition-all hover:shadow-md group relative">
-            <div>
-              <div class="flex justify-between items-start gap-4 mb-4">
-                <span class="text-[10px] font-bold text-[#10B981] bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-md uppercase tracking-wider">
-                  Most Popular
-                </span>
-                <span class="text-xs text-slate-400 font-medium">
-                  4 Weeks
-                </span>
-              </div>
-              <h3 class="text-xl font-bold text-[#1E293B] font-display group-hover:text-[#10B981] transition-colors">
-                AI for Beginners
-              </h3>
-              <p class="text-sm text-[#4B5563] mt-3 leading-relaxed font-normal">
-                Learn practical AI tools from beginner to advanced. Master ChatGPT, Midjourney, and automation templates to save hours daily.
-              </p>
-            </div>
-            <div class="pt-6 mt-6 border-t border-slate-100">
-              <a
-                href="https://wa.me/919656331815?text=Hi%20Sawad!%20I%20am%20interested%20in%20joining%20your%20AI%20for%20Beginners%20course.%20Please%20share%20more%20details."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full py-3 bg-[#10B981] hover:bg-[#0F9F6E] text-white font-bold rounded-xl text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm"
-              >
-                <span>Learn More on WhatsApp</span>
-                <i data-lucide="arrow-right" class="h-4 w-4"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Course Card 2 -->
-          <div class="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col justify-between transition-all hover:shadow-md group relative">
-            <div>
-              <div class="flex justify-between items-start gap-4 mb-4">
-                <span class="text-[10px] font-bold text-[#10B981] bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-md uppercase tracking-wider">
-                  Grow Sales
-                </span>
-                <span class="text-xs text-slate-400 font-medium">
-                  4 Weeks
-                </span>
-              </div>
-              <h3 class="text-xl font-bold text-[#1E293B] font-display group-hover:text-[#10B981] transition-colors">
-                Meta Ads with AI
-              </h3>
-              <p class="text-sm text-[#4B5563] mt-3 leading-relaxed font-normal">
-                Run profitable Facebook and Instagram ads using AI tools. Master target audience modeling and high-converting copy.
-              </p>
-            </div>
-            <div class="pt-6 mt-6 border-t border-slate-100">
-              <a
-                href="https://wa.me/919656331815?text=Hi%20Sawad!%20I%20want%20to%20enroll%20in%20the%20Meta%20Ads%20with%20AI%20masterclass.%20Let%20me%20know%20the%20upcoming%20batch%20schedule."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full py-3 bg-[#10B981] hover:bg-[#0F9F6E] text-white font-bold rounded-xl text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm"
-              >
-                <span>Learn More on WhatsApp</span>
-                <i data-lucide="arrow-right" class="h-4 w-4"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Course Card 3 -->
-          <div class="bg-white border border-slate-200 p-6 rounded-2xl flex flex-col justify-between transition-all hover:shadow-md group relative">
-            <div>
-              <div class="flex justify-between items-start gap-4 mb-4">
-                <span class="text-[10px] font-bold text-[#10B981] bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-md uppercase tracking-wider">
-                  Best for Businesses
-                </span>
-                <span class="text-xs text-slate-400 font-medium">
-                  Business Owners
-                </span>
-              </div>
-              <h3 class="text-xl font-bold text-[#1E293B] font-display group-hover:text-[#10B981] transition-colors">
-                WhatsApp Automation
-              </h3>
-              <p class="text-sm text-[#4B5563] mt-3 leading-relaxed font-normal">
-                Set up automated customer replies, custom sales qualifying bots, and CRM databases to handle leads 24/7.
-              </p>
-            </div>
-            <div class="pt-6 mt-6 border-t border-slate-100">
-              <a
-                href="https://wa.me/919656331815?text=Hi%20Sawad!%20I%20am%20a%20business%20owner%20and%20want%20to%20book%20a%20consultation%20for%20WhatsApp%20Automation%20setup."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full py-3 bg-[#10B981] hover:bg-[#0F9F6E] text-white font-bold rounded-xl text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm"
-              >
-                <span>Learn More on WhatsApp</span>
-                <i data-lucide="arrow-right" class="h-4 w-4"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Guarantee Banner -->
-        <div class="mt-16 p-6 md:p-8 bg-emerald-50/50 border border-emerald-200 rounded-3xl flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto shadow-sm">
-          <div class="h-16 w-16 md:h-20 md:w-20 shrink-0 rounded-2xl bg-white border border-emerald-100 flex items-center justify-center text-3xl shadow-sm">
-            🛡️
-          </div>
-          <div class="text-center md:text-left space-y-2">
-            <h4 class="text-lg md:text-xl font-bold text-[#1E293B] font-display">
-              My 100% Money-Back Success Guarantee
-            </h4>
-            <p class="text-sm text-[#4B5563] leading-relaxed">
-              I help my audience learn exactly how to make money using the practical high-value skills I teach. If you complete the lessons, take action on the step-by-step training, and are still unable to generate a side income or grow your business sales with these skills, I provide a <strong>100% hassle-free money-back guarantee</strong>. Your success is backed by my complete trust.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PRACTICAL AI SANDBOX -->
-    <section id="sandbox" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-100">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-[#10B981] text-xs font-bold uppercase tracking-widest font-sans">TRY IT NOW</span>
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-[#1E293B] mt-1 tracking-tight">
-          Sawad's Practical AI Sandbox
-        </h2>
-        <p class="text-[#4B5563] mt-2 text-sm max-w-md mx-auto leading-relaxed">
-          Choose a daily life prompt category below to see how ChatGPT can instantly help you. Simulate the generated response instantly!
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-12 gap-8 items-stretch bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl shadow-sm">
-        
-        <div class="lg:col-span-5 flex flex-col justify-between gap-4">
-          <div class="space-y-4">
-            <h3 class="text-sm font-bold text-slate-700 border-b border-slate-100 pb-2 flex items-center gap-2 font-display">
-              <i data-lucide="lightbulb" class="h-4 w-4 text-yellow-500"></i>
-              Select Example Category
-            </h3>
-            
-            <div class="space-y-2" id="prompt-categories">
-              <!-- Category buttons -->
-              <button
-                onclick="selectSandboxCategory('ads')"
-                id="sandbox-cat-ads"
-                class="w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer bg-slate-50 border-[#10B981] text-[#1E293B] font-bold"
-              >
-                <span class="text-sm font-display">Performance Meta Ad Angle</span>
-                <i data-lucide="chevron-right" class="h-4.5 w-4.5 text-[#10B981]"></i>
-              </button>
-              <button
-                onclick="selectSandboxCategory('poster')"
-                id="sandbox-cat-poster"
-                class="w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer bg-white border-slate-100 text-slate-600 hover:text-[#1E293B]"
-              >
-                <span class="text-sm font-display">Midjourney Art Prompt</span>
-                <i data-lucide="chevron-right" class="h-4.5 w-4.5 text-slate-400"></i>
-              </button>
-              <button
-                onclick="selectSandboxCategory('ecom')"
-                id="sandbox-cat-ecom"
-                class="w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer bg-white border-slate-100 text-slate-600 hover:text-[#1E293B]"
-              >
-                <span class="text-sm font-display">Automated Cart Recovery</span>
-                <i data-lucide="chevron-right" class="h-4.5 w-4.5 text-slate-400"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- Prompt Editor display box -->
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">Input Prompt</span>
-              <button
-                onclick="copySandboxPrompt()"
-                class="text-[10px] font-bold text-[#10B981] hover:text-[#0F9F6E] flex items-center gap-1 cursor-pointer font-mono"
-              >
-                <i data-lucide="copy" class="h-3 w-3"></i>
-                <span id="copy-status">Copy</span>
-              </button>
-            </div>
-            <p id="prompt-preview-text" class="text-xs text-slate-600 italic bg-white p-3 rounded-lg border border-slate-200/50 leading-relaxed font-sans">
-              "Act as an elite copywriter. Write a Facebook Ad primary text for a modern posture corrector targeting desk workers. Use the PAS (Problem-Agitation-Solve) formula with friendly emojis."
-            </p>
-            
-            <div class="flex flex-col gap-2 pt-1">
-              <button
-                id="simulate-btn"
-                onclick="simulateSandboxOutput()"
-                class="w-full py-2.5 bg-[#10B981] hover:bg-[#0F9F6E] text-white text-xs font-bold rounded-lg transition-all cursor-pointer shadow-sm"
-              >
-                Simulate Response
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Typewriter Output Screen -->
-        <div class="lg:col-span-7 bg-slate-900 rounded-xl p-5 flex flex-col justify-between font-mono relative overflow-hidden text-slate-100 shadow-inner min-h-[300px]">
-          <div class="absolute top-0 right-0 p-3 bg-emerald-500/10 text-[#10B981] text-[9px] uppercase font-bold border-l border-b border-slate-800 tracking-widest font-mono">
-            Live AI View
-          </div>
-
-          <div class="space-y-4 flex-1">
-            <div class="flex items-center gap-2 text-[10px] text-slate-400 pb-3 border-b border-slate-800">
-              <span class="h-2 w-2 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span>MODEL: CHATGPT-4 MINI</span>
             </div>
             
-            <div id="typewriter-output" class="text-xs text-slate-200 leading-relaxed whitespace-pre-wrap max-h-[340px] overflow-y-auto pr-2 scrollbar-thin font-mono cursor-blink">Running simulation...</div>
-          </div>
+            <div class="flex overflow-x-auto gap-4 hide-scrollbar pb-4" id="electronics-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </section>
 
-          <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-500">
-            <span>Instant Copy Ready</span>
-            <span>100% Beginner Friendly</span>
-          </div>
-        </div>
+        <section class="mb-8">
+            <div class="bg-white p-4 border-b rounded-t-sm shadow-sm">
+                <h2 class="text-xl md:text-2xl font-semibold">Suggested for You</h2>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2" id="main-product-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </section>
+    </main>
 
-      </div>
-    </section>
-
-    <!-- ABOUT ME & TIMELINE -->
-    <section id="about" class="py-20 bg-white px-4 sm:px-6 lg:px-8 border-t border-slate-100">
-      <div class="max-w-4xl mx-auto">
-        
-        <div class="text-center mb-16">
-          <span class="text-[#10B981] text-xs font-bold uppercase tracking-widest font-sans">MEET YOUR COACH</span>
-          <h2 class="text-3xl font-display font-bold text-[#1E293B] mt-1 tracking-tight">
-            About Sawad
-          </h2>
-          <div class="text-slate-600 mt-4 text-base max-w-2xl mx-auto font-normal space-y-4 leading-relaxed">
-            <p>
-              Hi, I'm Sawad. I am a B.Tech Engineer from GEC Thrissur and the founder of Qnayds Academy. I have trained over <strong>10k students</strong> in AI, digital marketing, and automated business workflows.
-            </p>
-            <p>
-              My goal is to make AI simple for everyone. Whether you're a student, professional, housewife, or small business owner, I'll help you use AI in real life to save time, optimize work, and grow income.
-            </p>
-          </div>
-        </div>
-
-        <!-- Clean Vertical Timeline -->
-        <div class="relative border-l border-slate-200 pl-6 sm:pl-8 space-y-10 max-w-xl mx-auto">
-          
-          <div class="relative group">
-            <div class="absolute left-[-31px] sm:left-[-39px] h-4 w-4 rounded-full border-2 border-[#10B981] bg-white group-hover:bg-[#10B981] transition-colors"></div>
+    <footer class="bg-gray-900 text-gray-300 py-10 mt-10">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <span class="text-[10px] font-bold text-[#10B981] bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 rounded uppercase">
-                2023 - Present
-              </span>
-              <h3 class="text-base font-bold text-[#1E293B] mt-2 font-display">AI Mentor & Consultant</h3>
-              <p class="text-sm text-[#4B5563] mt-1 font-light">
-                Empowering beginners, working professionals, and business owners with highly practical, non-technical AI tools to automate workflows, optimize productivity, and grow revenue on autopilot.
-              </p>
+                <h4 class="text-gray-500 font-semibold mb-4 text-sm uppercase">About</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white">About Us</a></li>
+                    <li><a href="#" class="hover:text-white">Careers</a></li>
+                    <li><a href="#" class="hover:text-white">ShopKart Stories</a></li>
+                </ul>
             </div>
-          </div>
-
-          <div class="relative group">
-            <div class="absolute left-[-31px] sm:left-[-39px] h-4 w-4 rounded-full border-2 border-[#10B981] bg-white group-hover:bg-[#10B981] transition-colors"></div>
             <div>
-              <span class="text-[10px] font-bold text-[#10B981] bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 rounded uppercase">
-                2021 - Present
-              </span>
-              <h3 class="text-base font-bold text-[#1E293B] mt-2 font-display">Founder — Qnayds Academy</h3>
-              <p class="text-sm text-[#4B5563] mt-1 font-light">
-                Built a premier skill-development academy and successfully trained over 10k students, housewives, and career starters in high-value digital and AI competencies.
-              </p>
+                <h4 class="text-gray-500 font-semibold mb-4 text-sm uppercase">Help</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Payments</a></li>
+                    <li><a href="#" class="hover:text-white">Shipping</a></li>
+                    <li><a href="#" class="hover:text-white">Cancellation & Returns</a></li>
+                    <li><a href="#" class="hover:text-white">FAQ</a></li>
+                </ul>
             </div>
-          </div>
-
-          <div class="relative group">
-            <div class="absolute left-[-31px] sm:left-[-39px] h-4 w-4 rounded-full border-2 border-[#10B981] bg-white group-hover:bg-[#10B981] transition-colors"></div>
             <div>
-              <span class="text-[10px] font-bold text-[#10B981] bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 rounded uppercase">
-                2021 - Present
-              </span>
-              <h3 class="text-base font-bold text-[#1E293B] mt-2 font-display">CMO (Performance Marketer & Growth Strategist) — Qnayds Academy</h3>
-              <p class="text-sm text-[#4B5563] mt-1 font-light">
-                Directing strategic direct-response campaigns, building conversion-focused funnels, and optimizing user acquisition setups for scalable growth.
-              </p>
+                <h4 class="text-gray-500 font-semibold mb-4 text-sm uppercase">Policy</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Return Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms Of Use</a></li>
+                    <li><a href="#" class="hover:text-white">Security</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy</a></li>
+                </ul>
             </div>
-          </div>
-
-          <div class="relative group">
-            <div class="absolute left-[-31px] sm:left-[-39px] h-4 w-4 rounded-full border-2 border-[#10B981] bg-white group-hover:bg-[#10B981] transition-colors"></div>
-            <div>
-              <span class="text-[10px] font-bold text-[#10B981] bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 rounded uppercase">
-                2017 - 2021
-              </span>
-              <h3 class="text-base font-bold text-[#1E293B] mt-2 font-display">B.Tech Engineer — GEC Thrissur</h3>
-              <p class="text-sm text-[#4B5563] mt-1 font-light">
-                Completed systems engineering degree at Government Engineering College (GEC) Thrissur, gaining top-tier technical depth, logical optimization training, and structured problem-solving skills.
-              </p>
+            <div class="border-l border-gray-700 pl-8 hidden md:block">
+                <h4 class="text-gray-500 font-semibold mb-4 text-sm uppercase">Mail Us:</h4>
+                <p class="text-sm leading-relaxed">
+                    ShopKart Internet Private Limited, <br>
+                    Buildings Alyssa, Begonia & <br>
+                    Clove Embassy Tech Village, <br>
+                    Outer Ring Road, Devarabeesanahalli Village, <br>
+                    Bengaluru, 560103, <br>
+                    Karnataka, India
+                </p>
             </div>
-          </div>
-
         </div>
-
-        <!-- Quick Call to Action -->
-        <div class="mt-16 p-8 bg-[#F8FAFC] border border-slate-200/60 rounded-2xl text-center space-y-4">
-          <h3 class="text-lg font-bold text-[#1E293B] font-display">Want to chat with me directly?</h3>
-          <p class="text-sm text-[#4B5563] max-w-md mx-auto">
-            Skip complex forms. Let's communicate on WhatsApp to help you pick the best study plan or automation track.
-          </p>
-          <a
-            href="https://wa.me/919656331815?text=Hi%20Sawad!%20I%20read%20your%20background%20profile%20on%20your%20website%20and%20would%20love%20to%20chat%20with%20you%20directly%20regarding%20your%20AI%20training%20programs."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-6 py-3 bg-[#10B981] hover:bg-[#0F9F6E] text-white font-bold rounded-xl text-sm transition-all shadow-sm"
-          >
-            <i data-lucide="message-square" class="h-4 w-4"></i>
-            <span>Message Sawad on WhatsApp</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section id="faq" class="py-20 bg-[#F8FAFC] border-t border-b border-slate-100 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto">
-        
-        <div class="text-center mb-12">
-          <span class="text-[#10B981] text-xs font-bold uppercase tracking-widest font-sans">HAVE QUESTIONS?</span>
-          <h2 class="text-3xl font-display font-bold text-[#1E293B] mt-1 tracking-tight">
-            Frequently Asked Questions
-          </h2>
-        </div>
-
-        <div class="space-y-4">
-          <!-- FAQ 1 -->
-          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all shadow-sm">
-            <button
-              onclick="toggleFaq(0)"
-              class="w-full p-5 flex items-center justify-between text-left font-display font-semibold text-[#1E293B] text-sm sm:text-base cursor-pointer hover:bg-slate-50 transition-colors"
-            >
-              <span>Do I need programming or coding skills?</span>
-              <i data-lucide="chevron-right" class="h-4.5 w-4.5 text-slate-400 transition-transform duration-200" id="faq-arrow-0"></i>
-            </button>
-            <div id="faq-answer-0" class="hidden px-5 pb-5 pt-1 text-sm text-[#4B5563] leading-relaxed border-t border-slate-50 bg-slate-50/50 animate-fadeIn">
-              Absolutely not. All the AI tools and automations we teach are no-code. If you can use a smartphone or type on a keyboard, you can easily learn and implement everything in our classes.
+        <div class="border-t border-gray-700 pt-6 container mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-sm">
+            <div class="flex gap-6 mb-4 md:mb-0">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase text-yellow-500"></i> Become a Seller</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-star text-yellow-500"></i> Advertise</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-gift text-yellow-500"></i> Gift Cards</span>
             </div>
-          </div>
-
-          <!-- FAQ 2 -->
-          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all shadow-sm">
-            <button
-              onclick="toggleFaq(1)"
-              class="w-full p-5 flex items-center justify-between text-left font-display font-semibold text-[#1E293B] text-sm sm:text-base cursor-pointer hover:bg-slate-50 transition-colors"
-            >
-              <span>Who is this training suitable for?</span>
-              <i data-lucide="chevron-right" class="h-4.5 w-4.5 text-slate-400 transition-transform duration-200" id="faq-arrow-1"></i>
-            </button>
-            <div id="faq-answer-1" class="hidden px-5 pb-5 pt-1 text-sm text-[#4B5563] leading-relaxed border-t border-slate-50 bg-slate-50/50 animate-fadeIn">
-              This is designed specifically for students wanting to earn side income, busy housewives looking to work from home, small business owners who want to automate support/increase sales, and professionals looking to level up their careers.
-            </div>
-          </div>
-
-          <!-- FAQ 3 -->
-          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all shadow-sm">
-            <button
-              onclick="toggleFaq(2)"
-              class="w-full p-5 flex items-center justify-between text-left font-display font-semibold text-[#1E293B] text-sm sm:text-base cursor-pointer hover:bg-slate-50 transition-colors"
-            >
-              <span>Are the training sessions online or offline?</span>
-              <i data-lucide="chevron-right" class="h-4.5 w-4.5 text-slate-400 transition-transform duration-200" id="faq-arrow-2"></i>
-            </button>
-            <div id="faq-answer-2" class="hidden px-5 pb-5 pt-1 text-sm text-[#4B5563] leading-relaxed border-t border-slate-50 bg-slate-50/50 animate-fadeIn">
-              All our training sessions are fully online, with step-by-step video tutorials that you can watch from the comfort of your home at any time.
-            </div>
-          </div>
-
-          <!-- FAQ 4 -->
-          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all shadow-sm">
-            <button
-              onclick="toggleFaq(3)"
-              class="w-full p-5 flex items-center justify-between text-left font-display font-semibold text-[#1E293B] text-sm sm:text-base cursor-pointer hover:bg-slate-50 transition-colors"
-            >
-              <span>Will I get recordings of the classes?</span>
-              <i data-lucide="chevron-right" class="h-4.5 w-4.5 text-slate-400 transition-transform duration-200" id="faq-arrow-3"></i>
-            </button>
-            <div id="faq-answer-3" class="hidden px-5 pb-5 pt-1 text-sm text-[#4B5563] leading-relaxed border-t border-slate-50 bg-slate-50/50 animate-fadeIn">
-              Yes! You will get lifetime access to all recorded video lessons, cheat sheets, and practical PDF guidebooks so you can learn at your own pace.
-            </div>
-          </div>
+            <p>&copy; 2026-2027 ShopKart.com</p>
         </div>
-
-      </div>
-    </section>
-
-    <!-- FOOTER SECTION -->
-    <footer class="bg-[#1E293B] text-white py-16 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-8 text-center sm:text-left">
-        <div>
-          <div class="flex items-center gap-3 justify-center sm:justify-start">
-            <div class="h-8 w-8 rounded bg-[#10B981] flex items-center justify-center text-white font-display font-extrabold text-xs">
-              SK
-            </div>
-            <span class="text-lg font-bold font-display">
-              Sawad K.T.
-            </span>
-          </div>
-          <p class="text-xs text-slate-300 mt-2 font-normal max-w-sm">
-            AI Trainer & Business Consultant. Making high-income skills simple, practical, and accessible to everyone.
-          </p>
-        </div>
-        
-        <div class="flex flex-col gap-4 text-center sm:text-right">
-          <div class="flex items-center justify-center sm:justify-end gap-5">
-            <a href="https://www.facebook.com/profile.php?id=61580936154145&sk=reviews" target="_blank" rel="noreferrer" class="text-slate-300 hover:text-[#10B981] transition-colors" title="Facebook Reviews">
-              <i data-lucide="facebook" class="h-5 w-5"></i>
-            </a>
-            <a href="https://www.instagram.com/sawadkt.ai/" target="_blank" rel="noreferrer" class="text-slate-300 hover:text-[#10B981] transition-colors">
-              <i data-lucide="instagram" class="h-5 w-5"></i>
-            </a>
-            <a href="https://wa.me/919656331815?text=Hi%20Sawad!%20I'm%20ready%20to%20learn%20high-income%20skills%20using%20AI." target="_blank" rel="noreferrer" class="text-slate-300 hover:text-[#10B981] transition-colors">
-              <i data-lucide="message-square" class="h-5 w-5"></i>
-            </a>
-            <a href="mailto:sawadkt8@gmail.com" class="text-slate-300 hover:text-[#10B981] transition-colors">
-              <i data-lucide="mail" class="h-5 w-5"></i>
-            </a>
-          </div>
-          <p class="text-xs text-slate-400 font-mono">
-            sawadkt8@gmail.com
-          </p>
-        </div>
-      </div>
-      
-      <div class="max-w-7xl mx-auto border-t border-slate-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-center text-[11px] text-slate-400 font-sans">
-        <span>&copy; 2026 Sawad K.T. All rights reserved.</span>
-        <span>Designed with simplicity for students, beginners, and local businesses.</span>
-      </div>
     </footer>
 
-    <!-- FLOATING CHATBOT WIDGET -->
-    <div class="fixed bottom-6 right-6 z-50">
-      <!-- Toggle button -->
-      <button
-        onclick="openChatbot()"
-        id="chatbot-bubble"
-        class="h-14 w-14 rounded-full bg-[#10B981] hover:bg-[#0F9F6E] text-white flex items-center justify-center shadow-lg hover:scale-105 transition-transform cursor-pointer group relative"
-      >
-        <span class="absolute -top-1 -right-1 flex h-4 w-4">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 border border-white text-[9px] text-white font-bold items-center justify-center">1</span>
-        </span>
-        <i data-lucide="message-square" class="h-6 w-6"></i>
-      </button>
+    <div id="login-modal" class="fixed inset-0 bg-black/60 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300">
+        <!-- Modal Content -->
+        <div class="bg-white w-[90%] max-w-[750px] h-[520px] rounded flex relative overflow-hidden transform scale-95 transition-transform duration-300" id="login-modal-content">
+            <!-- Close Button -->
+            <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl z-10 w-8 h-8 flex items-center justify-center bg-white rounded-full"><i class="fa-solid fa-xmark"></i></button>
 
-      <!-- Chat panel -->
-      <div 
-        id="chat-panel" 
-        class="hidden bg-white border border-slate-200 rounded-2xl w-[320px] sm:w-[380px] h-[480px] flex flex-col justify-between shadow-2xl relative overflow-hidden animate-scaleUp"
-      >
-        <!-- Header -->
-        <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between shrink-0">
-          <div class="flex items-center gap-2.5">
-            <div class="h-8.5 w-8.5 rounded-lg bg-[#1E293B] flex items-center justify-center">
-              <i data-lucide="sparkles" class="h-4.5 w-4.5 text-[#10B981]"></i>
+            <!-- Left Blue Pane -->
+            <div class="w-2/5 bg-blue-600 p-8 flex flex-col justify-between hidden md:flex text-white">
+                <div>
+                    <h2 class="text-3xl font-semibold mb-4">Login</h2>
+                    <p class="text-gray-200 text-[18px] leading-relaxed">Get access to your Orders, Wishlist and Recommendations</p>
+                </div>
+                <!-- Login Illustration Placeholder -->
+                <div class="w-full flex justify-center pb-8">
+                    <i class="fa-solid fa-box-open text-8xl text-blue-400 opacity-50"></i>
+                </div>
             </div>
-            <div>
-              <h4 class="text-xs sm:text-sm font-bold text-[#1E293B] font-display">AI Learning Assistant</h4>
-              <p class="text-[10px] text-slate-500 flex items-center gap-1">
-                <span class="h-1.5 w-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-                Online • Simple Answers
-              </p>
+
+            <!-- Right Form Pane -->
+            <div class="w-full md:w-3/5 p-8 sm:px-12 pt-14 flex flex-col h-full bg-white">
+                <form onsubmit="handleLogin(event)" class="flex flex-col h-full">
+                    
+                    <!-- Floating Label Input -->
+                    <div class="relative mb-8 mt-4">
+                        <input type="text" id="login-input" required class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-blue-600 peer text-gray-800 placeholder-transparent text-base" placeholder="Enter Email/Mobile number">
+                        <label for="login-input" class="absolute left-0 -top-3.5 text-gray-500 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-blue-600 cursor-text">Enter Email/Mobile number</label>
+                    </div>
+
+                    <p class="text-[11px] text-gray-500 mb-6 leading-relaxed">By continuing, you agree to ShopKart's <a href="#" class="text-blue-600 hover:underline">Terms of Use</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>.</p>
+
+                    <button type="submit" class="w-full bg-[#fb641b] text-white font-medium py-3.5 rounded-sm shadow-md hover:bg-[#f3580b] transition-colors mb-4 text-base">Request OTP</button>
+
+                    <div class="mt-auto text-center pb-4">
+                        <a href="#" class="text-blue-600 text-sm font-medium hover:underline">New to ShopKart? Create an account</a>
+                    </div>
+                </form>
             </div>
-          </div>
-          <button
-            onclick="closeChatbot()"
-            class="p-1.5 text-slate-400 hover:text-slate-800 bg-white border border-slate-200 rounded-lg cursor-pointer shadow-sm"
-          >
-            <i data-lucide="x" class="h-4 w-4"></i>
-          </button>
         </div>
-
-        <!-- Conversation History -->
-        <div class="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-50/30" id="chat-messages">
-          <!-- Initial bot message -->
-          <div class="flex justify-start">
-            <div class="max-w-[85%] rounded-2xl p-3 text-xs sm:text-sm leading-relaxed whitespace-pre-line bg-white text-slate-700 border border-slate-200 rounded-tl-none shadow-sm">
-              Hello! I am Sawad's virtual assistant. I'm here to help you find the right courses, understand how to automate your sales or customer support, or learn Facebook/Instagram ads. How can I help you today?
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick replies bar -->
-        <div class="p-2 border-t border-slate-100 bg-slate-50 flex gap-1.5 overflow-x-auto scrollbar-none shrink-0">
-          <button
-            onclick="sendQuickMessage('Which of your courses is best for a student starting out?')"
-            class="px-2.5 py-1.5 bg-white border border-slate-200 text-slate-600 hover:text-slate-950 text-[10px] font-semibold rounded-lg whitespace-nowrap shrink-0 cursor-pointer shadow-sm"
-          >
-            🎓 For Beginners
-          </button>
-          <button
-            onclick="sendQuickMessage('How can e-commerce automation save me hours of work?')"
-            class="px-2.5 py-1.5 bg-white border border-slate-200 text-slate-600 hover:text-slate-950 text-[10px] font-semibold rounded-lg whitespace-nowrap shrink-0 cursor-pointer shadow-sm"
-          >
-            📦 Shop Automation
-          </button>
-          <button
-            onclick="sendQuickMessage('Do I need coding for your classes?')"
-            class="px-2.5 py-1.5 bg-white border border-slate-200 text-slate-600 hover:text-slate-950 text-[10px] font-semibold rounded-lg whitespace-nowrap shrink-0 cursor-pointer shadow-sm"
-          >
-            💻 Is Coding Needed?
-          </button>
-        </div>
-
-        <!-- Inputs bar -->
-        <div class="p-3 bg-white border-t border-slate-200 flex flex-col gap-2 shrink-0">
-          <div class="flex gap-2">
-            <input
-              type="text"
-              id="chat-input"
-              placeholder="Ask a question..."
-              onkeydown="handleChatInputKey(event)"
-              class="flex-1 bg-slate-50 text-slate-800 text-xs sm:text-sm rounded-xl px-4 py-3 border border-slate-200 focus:outline-none focus:border-[#10B981] focus:bg-white"
-            />
-            <button
-              onclick="sendMessageFromInput()"
-              class="h-11 w-11 bg-[#10B981] hover:bg-[#0F9F6E] text-white rounded-xl flex items-center justify-center shrink-0 cursor-pointer shadow"
-            >
-              <i data-lucide="send" class="h-4.5 w-4.5"></i>
-            </button>
-          </div>
-          
-          <a
-            href="https://wa.me/919656331815?text=Hi%20Sawad%20K.T.!%20I%20am%20speaking%20with%20your%20AI%20chatbot%20on%20your%20website%20and%20would%20love%20to%20chat%20with%20you%20directly%2521"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-[#0F9F6E] border border-emerald-200 text-[11px] font-bold rounded-lg text-center transition-all flex items-center justify-center gap-1.5 shadow-sm"
-          >
-            <i data-lucide="message-square" class="h-3.5 w-3.5"></i>
-            Ask Sawad on WhatsApp
-          </a>
-        </div>
-      </div>
     </div>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919656331815" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 group">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Chat with us
+        </span>
+    </a>
 
-    <!-- JAVASCRIPT LOGIC ENGINE -->
+    <div id="toast-container" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex flex-col gap-2"></div>
+
     <script>
-      // Initialize lucide icons at load time
-      document.addEventListener('DOMContentLoaded', () => {
-        lucide.createIcons();
-        initProfileImage();
-        initSandbox();
-        checkCarouselScroll();
-      });
+        // --- Data Definitions ---
 
-      // 1. MOBILE MENU TRIGGERS
-      let isMenuOpen = false;
-      function toggleMobileMenu() {
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.getElementById('menu-icon');
-        isMenuOpen = !isMenuOpen;
-        if (isMenuOpen) {
-          menu.classList.remove('hidden');
-          menu.classList.add('flex', 'animate-fadeIn');
-          icon.setAttribute('data-lucide', 'x');
-        } else {
-          menu.classList.add('hidden');
-          menu.classList.remove('flex', 'animate-fadeIn');
-          icon.setAttribute('data-lucide', 'menu');
-        }
-        lucide.createIcons();
-      }
+        const categories = [
+            { name: 'Top Offers', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Offers' },
+            { name: 'Mobiles', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Mobile' },
+            { name: 'Electronics', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Electro' },
+            { name: 'Appliances', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Appli' },
+            { name: 'Fashion', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Fashn' },
+            { name: 'Beauty', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Bty' },
+            { name: 'Home', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Home' },
+            { name: 'Furniture', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Furni' },
+            { name: 'Flights', icon: 'https://placehold.co/64x64/f1f3f6/1a56db?text=Flght' }
+        ];
 
-      // 2. PROFILE IMAGE AND ADJUSTMENTS CONTROLLER
-      let zoom = 100;
-      let offsetX = 0;
-      let offsetY = 0;
-      let fitMode = 'cover';
-      let showControls = false;
+        const carouselImages = [
+            'https://placehold.co/1200x280/1a56db/ffffff?text=Big+Billion+Days+-+Up+to+80%25+Off',
+            'https://placehold.co/1200x280/8b5cf6/ffffff?text=New+Smartphone+Launch+-+Shop+Now',
+            'https://placehold.co/1200x280/10b981/ffffff?text=Summer+Fashion+Sale+-+Ends+Soon'
+        ];
 
-      function initProfileImage() {
-        // Load settings from localStorage
-        const savedPic = localStorage.getItem('sawad_profile_pic');
-        const savedZoom = localStorage.getItem('sawad_profile_zoom');
-        const savedX = localStorage.getItem('sawad_profile_x');
-        const savedY = localStorage.getItem('sawad_profile_y');
-        const savedFit = localStorage.getItem('sawad_profile_fit');
+        const electronicsProducts = [
+            { id: 1, name: 'True Wireless Earbuds', image: '', price: '₹999', discount: 'Min 50% Off', brand: 'boAt, Noise & more' },
+            { id: 2, name: 'Smart Watches', image: '', price: '₹1,299', discount: 'Up to 70% Off', brand: 'Fire-Boltt, Fastrack' },
+            { id: 3, name: 'Power Banks', image: '', price: '₹599', discount: 'From ₹599', brand: 'Mi, Ambrane' },
+            { id: 4, name: 'Monitors', image: '', price: '₹7,999', discount: 'From ₹7999', brand: 'Samsung, Dell' },
+            { id: 5, name: 'Printers', image: '', price: '₹3,999', discount: 'Up to 40% Off', brand: 'HP, Canon' },
+            { id: 6, name: 'Projectors', image: '', price: '₹9,999', discount: 'From ₹9999', brand: 'Zebronics' },
+        ];
 
-        if (savedPic) {
-          document.getElementById('profile-img').src = savedPic;
-        }
-        if (savedZoom) zoom = parseInt(savedZoom);
-        if (savedX) offsetX = parseInt(savedX);
-        if (savedY) offsetY = parseInt(savedY);
-        if (savedFit) fitMode = savedFit;
+        const mainProducts = [
+            { id: 101, name: 'SAMSUNG Galaxy F14 5G', rating: '4.2', reviews: '1,24,532', price: 11990, oldPrice: 17490, offer: '31% off', fassured: true, image: '' },
+            { id: 102, name: 'PUMA Sneakers For Men', rating: '4.1', reviews: '8,432', price: 1499, oldPrice: 3999, offer: '62% off', fassured: true, image: '' },
+            { id: 103, name: 'ASUS Vivobook 15 Core i3', rating: '4.3', reviews: '15,643', price: 34990, oldPrice: 50990, offer: '31% off', fassured: false, image: '' },
+            { id: 104, name: 'Wrangler Slim Fit Jeans', rating: '3.9', reviews: '2,134', price: 1259, oldPrice: 2799, offer: '55% off', fassured: true, image: '' },
+            { id: 105, name: 'SONY Bravia 108cm (43 inch)', rating: '4.6', reviews: '9,876', price: 42990, oldPrice: 69900, offer: '38% off', fassured: true, image: '' },
+            { id: 106, name: 'Mi 3i 20000 mAh Power Bank', rating: '4.4', reviews: '56,732', price: 1999, oldPrice: 2199, offer: '9% off', fassured: true, image: '' },
+            { id: 107, name: 'Fastrack Revoltt FS1 Pro', rating: '4.0', reviews: '4,521', price: 1799, oldPrice: 3995, offer: '54% off', fassured: false, image: '' },
+            { id: 108, name: 'US Polo Assn T-Shirt', rating: '4.2', reviews: '12,345', price: 699, oldPrice: 1199, offer: '41% off', fassured: true, image: '' },
+            { id: 109, name: 'PHILIPS Hair Dryer', rating: '4.3', reviews: '32,109', price: 849, oldPrice: 1095, offer: '22% off', fassured: true, image: '' },
+            { id: 110, name: 'American Tourister Backpack', rating: '4.5', reviews: '21,987', price: 1199, oldPrice: 2499, offer: '52% off', fassured: true, image: '' }
+        ];
 
-        // Sync inputs
-        document.getElementById('zoom-slider').value = zoom;
-        document.getElementById('offset-x-slider').value = offsetX;
-        document.getElementById('offset-y-slider').value = offsetY;
-
-        updateImageStyle();
-      }
-
-      function handleProfileUpload(event) {
-        const file = event.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            document.getElementById('profile-img').src = e.target.result;
-            localStorage.setItem('sawad_profile_pic', e.target.result);
+        let cart = 0;
+        
+        function openLoginModal() {
+            const modal = document.getElementById('login-modal');
+            const content = document.getElementById('login-modal-content');
             
-            // Instantly open controls panel for immediate alignment
-            showControls = true;
-            syncControlsPanel();
-          }
-          reader.readAsDataURL(file);
-        }
-      }
-
-      function togglePhotoControls() {
-        showControls = !showControls;
-        syncControlsPanel();
-      }
-
-      function syncControlsPanel() {
-        const panel = document.getElementById('photo-controls');
-        const btn = document.getElementById('tune-btn');
-        const btnText = document.getElementById('tune-btn-text');
-        
-        if (showControls) {
-          panel.classList.remove('hidden');
-          btn.classList.add('bg-[#10B981]', 'border-[#10B981]', 'text-white');
-          btn.classList.remove('bg-white', 'text-slate-700');
-          btnText.classList.remove('hidden');
-        } else {
-          panel.classList.add('hidden');
-          btn.classList.remove('bg-[#10B981]', 'border-[#10B981]', 'text-white');
-          btn.classList.add('bg-white', 'text-slate-700');
-          btnText.classList.add('hidden');
-        }
-      }
-
-      function updateImageStyle() {
-        zoom = parseInt(document.getElementById('zoom-slider').value);
-        offsetX = parseInt(document.getElementById('offset-x-slider').value);
-        offsetY = parseInt(document.getElementById('offset-y-slider').value);
-
-        // Update value text tags
-        document.getElementById('zoom-val').innerText = zoom + '%';
-        document.getElementById('offset-x-val').innerText = offsetX + 'px';
-        document.getElementById('offset-y-val').innerText = offsetY + 'px';
-
-        // Apply to style
-        const img = document.getElementById('profile-img');
-        img.style.objectFit = fitMode;
-        img.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${zoom / 100})`;
-
-        // Persist
-        localStorage.setItem('sawad_profile_zoom', zoom);
-        localStorage.setItem('sawad_profile_x', offsetX);
-        localStorage.setItem('sawad_profile_y', offsetY);
-        localStorage.setItem('sawad_profile_fit', fitMode);
-      }
-
-      function setFitMode(mode) {
-        fitMode = mode;
-        const coverBtn = document.getElementById('fit-cover-btn');
-        const containBtn = document.getElementById('fit-contain-btn');
-
-        if (mode === 'cover') {
-          coverBtn.className = 'text-[9px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer bg-[#10B981] text-white border-[#10B981]';
-          containBtn.className = 'text-[9px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer bg-white hover:bg-slate-100 border-slate-200 text-slate-600';
-        } else {
-          containBtn.className = 'text-[9px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer bg-[#10B981] text-white border-[#10B981]';
-          coverBtn.className = 'text-[9px] font-bold px-2 py-0.5 rounded border transition-all cursor-pointer bg-white hover:bg-slate-100 border-slate-200 text-slate-600';
-        }
-        updateImageStyle();
-      }
-
-      function resetPhotoPosition() {
-        zoom = 100;
-        offsetX = 0;
-        offsetY = 0;
-        fitMode = 'cover';
-
-        document.getElementById('zoom-slider').value = 100;
-        document.getElementById('offset-x-slider').value = 0;
-        document.getElementById('offset-y-slider').value = 0;
-
-        setFitMode('cover');
-      }
-
-      function resetToDefaultPhoto() {
-        document.getElementById('profile-img').src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=800';
-        localStorage.removeItem('sawad_profile_pic');
-        resetPhotoPosition();
-      }
-
-
-      // 3. CAROUSEL SCROLLER & VIDEO EMBEDS
-      const carousel = document.getElementById('reviews-carousel');
-      function scrollCarousel(direction) {
-        const scrollAmount = carousel.clientWidth * 0.75;
-        if (direction === 'left') {
-          carousel.scrollLeft -= scrollAmount;
-        } else {
-          carousel.scrollLeft += scrollAmount;
-        }
-      }
-
-      function checkCarouselScroll() {
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const left = carousel.scrollLeft;
-        const max = carousel.scrollWidth - carousel.clientWidth;
-
-        if (left > 5) {
-          prevBtn.className = 'h-11 w-11 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-400 active:scale-95 shadow-xs flex items-center justify-center transition-all cursor-pointer';
-          prevBtn.disabled = false;
-        } else {
-          prevBtn.className = 'h-11 w-11 rounded-full border border-slate-200 bg-slate-50 text-slate-300 flex items-center justify-center transition-all cursor-not-allowed';
-          prevBtn.disabled = true;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Trigger animation
+            requestAnimationFrame(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            });
+            
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
         }
 
-        if (left < max - 5) {
-          nextBtn.className = 'h-11 w-11 rounded-full border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-400 active:scale-95 shadow-xs flex items-center justify-center transition-all cursor-pointer';
-          nextBtn.disabled = false;
-        } else {
-          nextBtn.className = 'h-11 w-11 rounded-full border border-slate-200 bg-slate-50 text-slate-300 flex items-center justify-center transition-all cursor-not-allowed';
-          nextBtn.disabled = true;
+        function closeLoginModal() {
+            const modal = document.getElementById('login-modal');
+            const content = document.getElementById('login-modal-content');
+            
+            // Reverse animation
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300); // Wait for transition
+            
+            // Restore body scrolling
+            document.body.style.overflow = '';
         }
-      }
 
-      function playVideo(id, youtubeId, title) {
-        const card = document.getElementById(`testimonial-${id}`);
-        const wrapper = card.querySelector('.video-wrapper');
-        
-        wrapper.innerHTML = `
-          <iframe
-            src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1"
-            title="${title}"
-            class="absolute inset-0 w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-          <button
-            onclick="stopVideo(event, '${id}', '${youtubeId}', '${title}')"
-            class="absolute top-2 right-2 p-1.5 bg-slate-900/95 text-white hover:bg-red-600 rounded-lg z-20 transition-all flex items-center gap-1 text-[10px] font-bold cursor-pointer"
-          >
-            <i data-lucide="x" class="h-3 w-3"></i>
-            <span>Stop</span>
-          </button>
-        `;
-        lucide.createIcons();
-      }
-
-      function stopVideo(event, id, youtubeId, title) {
-        event.stopPropagation();
-        const card = document.getElementById(`testimonial-${id}`);
-        const wrapper = card.querySelector('.video-wrapper');
-        
-        wrapper.innerHTML = `
-          <img
-            src="https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg"
-            alt="${title}"
-            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/15 group-hover:from-black/55 transition-all duration-300"></div>
-          <div class="absolute inset-0 flex items-center justify-center z-10">
-            <div class="h-12 w-12 rounded-full bg-white/95 text-[#10B981] group-hover:bg-[#10B981] group-hover:text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-all duration-300 border border-slate-100">
-              <i data-lucide="play" class="h-5 w-5 fill-current ml-0.5 stroke-0"></i>
-            </div>
-          </div>
-        `;
-        lucide.createIcons();
-      }
-
-
-      // 4. PRACTICAL AI SANDBOX CONTROLLER
-      const presets = {
-        ads: {
-          prompt: "Act as an elite copywriter. Write a Facebook Ad primary text for a modern posture corrector targeting desk workers. Use the PAS (Problem-Agitation-Solve) formula with friendly emojis.",
-          result: `🚨 OFFICE WORKERS: Are you reading this while slouching? \n\nYour shoulders are rounded, your upper back is tight, and that dull ache at the base of your neck is getting harder to ignore by 3 PM. 😩\n\nSitting at a desk for 8+ hours is literally crushing your spine, causing chronic fatigue and tight shoulders. \n\nSuffer no more. Meet the AlignFit Posture Corrector. \n\n✔️ Instantly aligns your spine with soft, breathable support\n✔️ Built-in smart vibration alerts you the second you slouch\n✔️ Just 20 minutes a day retrains your muscles naturally\n\n"It completely relieved my neck pain within the first week!" - Sarah K., Developer\n\nShop now and save 40% today only + Free Shipping! ⬇)\n👉 [YourStoreURL.com]`
-        },
-        poster: {
-          prompt: "Create a cinematic product shot prompt for Midjourney for a premium organic orange energy drink, volcanic orange flavor, explosive splash effect, realistic studio lighting.",
-          result: `Midjourney Prompt command:\n/imagine prompt: A premium white aluminum can of "Volcanic Citrus" organic energy drink, center studio product shot, explosive splashing orange juice droplets, hyper-detailed orange peels, warm softbox illumination, flat bright minimalist pastel background --ar 4:5 --stylize 150 --v 6.0`
-        },
-        ecom: {
-          prompt: "Write an automated conversion-optimized email copy for customers who abandoned their shopping cart in our shop. Keep it personal and offer a time-limited 10% coupon code.",
-          result: `Subject: Hey, did your internet cut out? (Your cart is waiting!)\n\nHi [First Name],\n\nWe saw you browsing our store, but it looks like you got pulled away before completing your checkout! No worries, life happens. \n\n🛒 [Product Link / View My Cart]\n\nBecause we want you to experience [Product Name] without any friction, here is an exclusive 10% discount on your order. Use code: RECOVER10 at checkout.\n\nWarning: This cart and discount code expire in exactly 24 hours.\n\nClick below to complete your order in 30 seconds:\n👉 [Secure Checkout Link]\n\nHave questions? Just reply to this email, I will answer personally!\n\nCheers,\nSawad`
+        function handleLogin(event) {
+            event.preventDefault();
+            const input = document.getElementById('login-input').value;
+            
+            // Simulate OTP request
+            closeLoginModal();
+            showToast(`OTP sent to ${input}`);
+            
+            // Clear input
+            document.getElementById('login-input').value = '';
         }
-      };
 
-      let activeCategory = 'ads';
-      let typewriterInterval = null;
-
-      function initSandbox() {
-        simulateSandboxOutput();
-      }
-
-      function selectSandboxCategory(cat) {
-        activeCategory = cat;
-        
-        // Update selector UI buttons
-        const cats = ['ads', 'poster', 'ecom'];
-        cats.forEach(c => {
-          const btn = document.getElementById(`sandbox-cat-${c}`);
-          const icon = btn.querySelector('i');
-          if (c === cat) {
-            btn.className = "w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer bg-slate-50 border-[#10B981] text-[#1E293B] font-bold";
-            icon.className = "h-4.5 w-4.5 text-[#10B981]";
-          } else {
-            btn.className = "w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer bg-white border-slate-100 text-slate-600 hover:text-[#1E293B]";
-            icon.className = "h-4.5 w-4.5 text-slate-400";
-          }
+        // Close modal when clicking outside
+        document.getElementById('login-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLoginModal();
+            }
         });
-        
-        // Update prompt preview text
-        document.getElementById('prompt-preview-text').innerText = `"${presets[cat].prompt}"`;
-        
-        // Restart simulated typing response
-        simulateSandboxOutput();
-        lucide.createIcons();
-      }
 
-      function simulateSandboxOutput() {
-        if (typewriterInterval) clearInterval(typewriterInterval);
-        
-        const outputBox = document.getElementById('typewriter-output');
-        const simulateBtn = document.getElementById('simulate-btn');
-        outputBox.innerText = '';
-        outputBox.classList.add('cursor-blink');
-        simulateBtn.disabled = true;
-        simulateBtn.innerText = 'Generating output...';
+        // --- Initialization Functions ---
 
-        const text = presets[activeCategory].result;
-        let index = 0;
-        
-        // Fast typewriter typing simulator
-        typewriterInterval = setInterval(() => {
-          if (index < text.length) {
-            outputBox.innerText = text.substring(0, index + 15);
-            index += 15;
-            outputBox.scrollTop = outputBox.scrollHeight;
-          } else {
-            clearInterval(typewriterInterval);
-            outputBox.classList.remove('cursor-blink');
-            simulateBtn.disabled = false;
-            simulateBtn.innerText = 'Simulate Response';
-          }
-        }, 12);
-      }
-
-      function copySandboxPrompt() {
-        const text = presets[activeCategory].prompt;
-        navigator.clipboard.writeText(text);
-        
-        const status = document.getElementById('copy-status');
-        status.innerText = 'Copied!';
-        setTimeout(() => {
-          status.innerText = 'Copy';
-        }, 1500);
-      }
-
-
-      // 5. FAQ ACCORDION MANAGER
-      function toggleFaq(idx) {
-        const ans = document.getElementById(`faq-answer-${idx}`);
-        const arrow = document.getElementById(`faq-arrow-${idx}`);
-        
-        if (ans.classList.contains('hidden')) {
-          ans.classList.remove('hidden');
-          arrow.style.transform = 'rotate(90deg)';
-          arrow.style.color = '#10B981';
-        } else {
-          ans.classList.add('hidden');
-          arrow.style.transform = 'rotate(0deg)';
-          arrow.style.color = '';
-        }
-      }
-
-
-      // 6. INTERACTIVE AI CHATBOT ENGINE
-      let chatOpen = false;
-
-      function openChatbot() {
-        document.getElementById('chat-panel').classList.remove('hidden');
-        document.getElementById('chatbot-bubble').classList.add('hidden');
-        document.getElementById('chat-input').focus();
-      }
-
-      function closeChatbot() {
-        document.getElementById('chat-panel').classList.add('hidden');
-        document.getElementById('chatbot-bubble').classList.remove('hidden');
-      }
-
-      function handleChatInputKey(event) {
-        if (event.key === 'Enter') {
-          sendMessageFromInput();
-        }
-      }
-
-      function sendMessageFromInput() {
-        const input = document.getElementById('chat-input');
-        const text = input.value.trim();
-        if (text) {
-          input.value = '';
-          appendUserMessage(text);
-          triggerBotReply(text);
-        }
-      }
-
-      function sendQuickMessage(text) {
-        appendUserMessage(text);
-        triggerBotReply(text);
-      }
-
-      function appendUserMessage(text) {
-        const container = document.getElementById('chat-messages');
-        const div = document.createElement('div');
-        div.className = 'flex justify-end animate-fadeIn';
-        div.innerHTML = `
-          <div class="max-w-[85%] rounded-2xl p-3 text-xs sm:text-sm leading-relaxed whitespace-pre-line bg-[#10B981] text-white font-bold rounded-tr-none shadow-sm">
-            ${text}
-          </div>
-        `;
-        container.appendChild(div);
-        container.scrollTop = container.scrollHeight;
-      }
-
-      function triggerBotReply(userText) {
-        const container = document.getElementById('chat-messages');
-        
-        // Append Typing indicator bubble
-        const loader = document.createElement('div');
-        loader.className = 'flex justify-start animate-fadeIn';
-        loader.id = 'chat-loader';
-        loader.innerHTML = `
-          <div class="bg-white border border-slate-200 text-slate-400 rounded-2xl rounded-tl-none p-3.5 text-xs flex items-center gap-2 shadow-sm">
-            <span class="h-1.5 w-1.5 bg-[#10B981] rounded-full animate-bounce"></span>
-            <span class="h-1.5 w-1.5 bg-[#10B981] rounded-full animate-bounce" style="animation-delay: 150ms"></span>
-            <span class="h-1.5 w-1.5 bg-[#10B981] rounded-full animate-bounce" style="animation-delay: 300ms"></span>
-            <span class="font-sans text-xs">AI is typing...</span>
-          </div>
-        `;
-        container.appendChild(loader);
-        container.scrollTop = container.scrollHeight;
-
-        // Intelligent client-side response matching
-        let replyText = "I'm here to support you! For instant bookings, class schedules or private consultation queries, you can connect with Sawad directly on WhatsApp. I've placed the quick WhatsApp button below.";
-        
-        const lower = userText.toLowerCase();
-        if (lower.includes('beginners') || lower.includes('course') || lower.includes('training') || lower.includes('classes')) {
-          replyText = "Our 'AI for Beginners' is a highly requested 4-week program! It covers masterclasses on ChatGPT, Midjourney, and prompt engineering worksheets. It is completely structured for non-technical beginners. Let's chat on WhatsApp for curriculum files!";
-        } else if (lower.includes('whatsapp') || lower.includes('automation') || lower.includes('crm')) {
-          replyText = "Yes! Our WhatsApp Automation masterclass is perfect for small business owners and managers. You will learn to establish automated customer support pipelines, lead qualification bots, and CRM spreadsheets that run 24/7 without code.";
-        } else if (lower.includes('ads') || lower.includes('meta') || lower.includes('facebook') || lower.includes('instagram')) {
-          replyText = "We offer a 'Meta Ads with AI' 4-week training program. It teaches high-performance target modeling, ad copywriting prompts, and dynamic creative generation using advanced AI tools to scale sales. Let's connect on WhatsApp to secure a slot in the next batch!";
-        } else if (lower.includes('coding') || lower.includes('programming') || lower.includes('code')) {
-          replyText = "Absolutely zero coding or tech background is required! Every single tool we teach is completely visual and no-code. If you can type or use WhatsApp, you are 100% ready to succeed.";
-        } else if (lower.includes('fees') || lower.includes('pricing') || lower.includes('cost') || lower.includes('price')) {
-          replyText = "Our programs are designed to be extremely affordable for students, freelancers, and small businesses. Connect with Sawad on WhatsApp now to check currently active discount coupons and batch schedules!";
+        function renderCategories() {
+            const list = document.getElementById('category-list');
+            categories.forEach(cat => {
+                const li = document.createElement('li');
+                li.className = 'flex flex-col items-center justify-center cursor-pointer group px-2';
+                li.innerHTML = `
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 overflow-hidden mb-1">
+                        <img src="${cat.icon}" alt="${cat.name}" class="w-full h-full object-contain transition-transform group-hover:scale-110">
+                    </div>
+                    <span class="text-[10px] sm:text-xs font-medium text-center hover:text-blue-600">${cat.name} <i class="fa-solid fa-chevron-down text-[8px] text-gray-400"></i></span>
+                `;
+                list.appendChild(li);
+            });
         }
 
-        setTimeout(() => {
-          // Remove typing indicator
-          const el = document.getElementById('chat-loader');
-          if (el) el.remove();
+        function renderElectronics() {
+            const grid = document.getElementById('electronics-grid');
+            electronicsProducts.forEach(prod => {
+                const item = document.createElement('div');
+                item.className = 'min-w-[150px] max-w-[150px] flex flex-col items-center p-2 cursor-pointer border border-transparent hover:border-gray-200 rounded';
+                item.innerHTML = `
+                    <div class="h-[120px] mb-4 overflow-hidden">
+                        <img src="${prod.image}" alt="${prod.name}" class="h-full w-full object-contain hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-center truncate w-full">${prod.name}</h3>
+                    <p class="text-green-600 font-semibold text-sm mt-1">${prod.discount}</p>
+                    <p class="text-gray-500 text-xs text-center mt-1 truncate w-full">${prod.brand}</p>
+                `;
+                grid.appendChild(item);
+            });
+        }
 
-          // Append reply bubble
-          const replyDiv = document.createElement('div');
-          replyDiv.className = 'flex justify-start animate-fadeIn';
-          replyDiv.innerHTML = `
-            <div class="max-w-[85%] rounded-2xl p-3 text-xs sm:text-sm leading-relaxed whitespace-pre-line bg-white text-slate-700 border border-slate-200 rounded-tl-none shadow-sm">
-              ${replyText}
-            </div>
-          `;
-          container.appendChild(replyDiv);
-          container.scrollTop = container.scrollHeight;
-        }, 1200);
-      }
+        function formatPrice(price) {
+            return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(price);
+        }
+
+        // --- AI Image Generation Helper ---
+        async function fetchAIImage(prompt, elementId, fallbackUrl) {
+            // Note: API key is not provided in this environment.
+            // Bypassing the API call to avoid 403 errors and immediately using the fallback.
+            
+            const imgElement = document.getElementById(elementId);
+            if (imgElement) {
+                // Simulate a slight network delay before showing the fallback
+                setTimeout(() => {
+                    imgElement.src = fallbackUrl;
+                    imgElement.classList.remove('animate-pulse', 'bg-gray-200');
+                }, 500); // 500ms delay
+            }
+            
+            /* Original implementation for reference (commented out to prevent 403 errors):
+            const payload = {
+                contents: [{
+                    parts: [{ text: prompt }]
+                }],
+                generationConfig: {
+                    responseModalities: ['IMAGE']
+                },
+            };
+            const apiKey = "YOUR_API_KEY_HERE"; // Need a valid key here
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-image:generateContent?key=${apiKey}`;
+            
+            try {
+                if(!apiKey) throw new Error("API Key is missing");
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API returned ${response.status}`);
+                }
+                
+                const result = await response.json();
+                const base64Data = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+                
+                if (base64Data) {
+                    if (imgElement) {
+                        imgElement.src = `data:image/png;base64,${base64Data}`;
+                        imgElement.classList.remove('animate-pulse', 'bg-gray-200');
+                    }
+                } else {
+                     console.warn("No image data returned for:", prompt);
+                     if (imgElement) {
+                        imgElement.src = fallbackUrl;
+                        imgElement.classList.remove('animate-pulse', 'bg-gray-200');
+                     }
+                }
+            } catch (error) {
+                console.error("Failed to fetch image:", error);
+                 if (imgElement) {
+                    imgElement.src = fallbackUrl;
+                    imgElement.classList.remove('animate-pulse', 'bg-gray-200');
+                 }
+            }
+            */
+        }
+
+        function renderElectronics() {
+            const grid = document.getElementById('electronics-grid');
+            electronicsProducts.forEach(prod => {
+                const item = document.createElement('div');
+                item.className = 'min-w-[150px] max-w-[150px] flex flex-col items-center p-2 cursor-pointer border border-transparent hover:border-gray-200 rounded';
+                const imgId = `elec-img-${prod.id}`;
+                item.innerHTML = `
+                    <div class="h-[120px] mb-4 overflow-hidden w-full flex justify-center items-center">
+                        <img id="${imgId}" src="" alt="${prod.name}" class="h-full w-full object-contain hover:scale-105 transition-transform duration-300 animate-pulse bg-gray-200 rounded">
+                    </div>
+                    <h3 class="text-sm font-medium text-center truncate w-full">${prod.name}</h3>
+                    <p class="text-green-600 font-semibold text-sm mt-1">${prod.discount}</p>
+                    <p class="text-gray-500 text-xs text-center mt-1 truncate w-full">${prod.brand}</p>
+                `;
+                grid.appendChild(item);
+                
+                // Fetch image asynchronously
+                const fallback = `https://placehold.co/150x150/ffffff/6b7280?text=${encodeURIComponent(prod.name)}`;
+                fetchAIImage(`A clear, professional product photo of ${prod.name}, isolated on a white background, studio lighting`, imgId, fallback);
+            });
+        }
+
+        function renderMainProducts() {
+            const grid = document.getElementById('main-product-grid');
+            mainProducts.forEach(prod => {
+                const item = document.createElement('div');
+                item.className = 'bg-white p-3 border hover:shadow-lg transition-shadow duration-300 relative group flex flex-col';
+                const imgId = `main-img-${prod.id}`;
+                
+                const fassuredBadge = prod.fassured ? 
+                    `<img src="https://placehold.co/60x20/1a56db/ffffff?text=F-Assured" alt="F-Assured" class="h-4 object-contain ml-2 inline-block">` : '';
+
+                item.innerHTML = `
+                    <div class="absolute top-2 right-2 text-gray-400 hover:text-red-500 cursor-pointer z-10">
+                        <i class="fa-solid fa-heart text-xl"></i>
+                    </div>
+                    <div class="h-[180px] sm:h-[220px] w-full mb-3 flex items-center justify-center p-2 relative overflow-hidden">
+                        <img id="${imgId}" src="" alt="${prod.name}" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300 animate-pulse bg-gray-200 rounded w-full h-full">
+                    </div>
+                    <div class="flex-grow flex flex-col">
+                        <h3 class="text-sm font-medium text-gray-800 hover:text-blue-600 cursor-pointer truncate" title="${prod.name}">${prod.name}</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1">
+                                ${prod.rating} <i class="fa-solid fa-star text-[8px]"></i>
+                            </span>
+                            <span class="text-gray-500 text-xs">(${prod.reviews})</span>
+                            ${fassuredBadge}
+                        </div>
+                        <div class="flex items-baseline gap-2 mt-2">
+                            <span class="font-bold text-gray-900">${formatPrice(prod.price)}</span>
+                            <span class="text-gray-500 text-xs line-through">${formatPrice(prod.oldPrice)}</span>
+                            <span class="text-green-600 text-xs font-semibold">${prod.offer}</span>
+                        </div>
+                    </div>
+                    <button onclick="addToCart(event, '${prod.name}')" class="mt-3 w-full bg-blue-600 text-white py-2 rounded-sm font-medium text-sm hover:bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Add to Cart
+                    </button>
+                `;
+                grid.appendChild(item);
+
+                // Fetch image asynchronously
+                const fallback = `https://placehold.co/200x250/ffffff/6b7280?text=${encodeURIComponent(prod.name.split(' ')[0])}`;
+                 fetchAIImage(`A high quality product photography shot of ${prod.name}, white background, realistic lighting`, imgId, fallback);
+            });
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-gray-800 text-white px-4 py-3 rounded shadow-lg text-sm flex items-center gap-3 transform translate-y-full opacity-0 transition-all duration-300';
+            toast.innerHTML = `
+                <i class="fa-solid fa-circle-check text-green-400"></i>
+                <span>${message}</span>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Animate in
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-full', 'opacity-0');
+            });
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-y-full', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function addToCart(event, productName) {
+            // Prevent click from bubbling up if card was clickable
+            event.stopPropagation();
+            
+            cart++;
+            document.getElementById('cart-count').textContent = cart;
+            
+            // Simple animation on cart icon
+            const cartIcon = document.querySelector('.fa-cart-shopping').parentElement;
+            cartIcon.classList.add('scale-125');
+            setTimeout(() => cartIcon.classList.remove('scale-125'), 200);
+
+            showToast(`Added ${productName} to your cart`);
+        }
+
+        let currentSlide = 0;
+        let carouselInterval;
+
+        function renderCarousel() {
+            const inner = document.getElementById('carousel-inner');
+            const indicatorsContainer = document.getElementById('carousel-indicators');
+            
+            // Set width of inner container based on number of images
+            inner.style.width = `${carouselImages.length * 100}%`;
+
+            carouselImages.forEach((src, index) => {
+                // Slide Image
+                const div = document.createElement('div');
+                div.className = 'w-full h-full flex-shrink-0';
+                div.innerHTML = `<img src="${src}" alt="Banner ${index + 1}" class="w-full h-full object-cover">`;
+                inner.appendChild(div);
+
+                // Indicator
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-colors ${index === 0 ? 'bg-white' : 'bg-white/50'}`;
+                dot.onclick = () => goToSlide(index);
+                indicatorsContainer.appendChild(dot);
+            });
+        }
+
+        function updateCarousel() {
+            const inner = document.getElementById('carousel-inner');
+            const dots = document.getElementById('carousel-indicators').children;
+            
+            inner.style.transform = `translateX(-${currentSlide * (100 / carouselImages.length)}%)`;
+            
+            Array.from(dots).forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.add('bg-white/50');
+                    dot.classList.remove('bg-white');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % carouselImages.length;
+            updateCarousel();
+            resetCarouselInterval();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + carouselImages.length) % carouselImages.length;
+            updateCarousel();
+            resetCarouselInterval();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetCarouselInterval();
+        }
+
+        function startCarousel() {
+            carouselInterval = setInterval(nextSlide, 4000);
+        }
+
+        function resetCarouselInterval() {
+            clearInterval(carouselInterval);
+            startCarousel();
+        }
+
+        // --- Initialize Everything on Load ---
+        window.onload = () => {
+            renderCategories();
+            renderCarousel();
+            startCarousel();
+            renderElectronics();
+            renderMainProducts();
+        };
+
     </script>
-  </body>
+</body>
 </html>
